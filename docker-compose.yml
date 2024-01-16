@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    ports: 
+      - 80:80
+    volumes:
+      - ./nginx/default.config:/etc/nginx/conf.d/default.conf
+      - ./wordpress:/var/www/html
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: wp
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+  php:
+    build:
+      context: .
+      dockerfile: php.dockerfile
+    volumes:
+      - ./wordpress:/var/www/html
+      
+  wordpress:
+    image: wordpress:latest
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_NAME: wp
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: secret
+    volumes:
+      - ./wordpress:/var/www/html
