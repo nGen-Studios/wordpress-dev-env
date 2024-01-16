@@ -1,0 +1,12 @@
+{
+  "name": "wordpress-dev-env",
+  "version": "1.0.0",
+  "description": "This repository provides a Dockerized WordPress development environment, allowing you to kickstart your WordPress website or theme development effortlessly.",
+  "scripts": {
+    "dev": "docker compose up -d --build",
+    "stop": "docker compose stop"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
