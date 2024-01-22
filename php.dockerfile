@@ -17,4 +17,5 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable pdo_mys
 	freetype-dev \
 	libjpeg-turbo-dev \
 	libpng-dev \
-	&& rm -rf /tmp/*
+	&& rm -rf /tmp/* && apk add libzip-dev && \
+	docker-php-ext-install zip

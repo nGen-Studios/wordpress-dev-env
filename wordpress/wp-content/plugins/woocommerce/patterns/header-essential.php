@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Title: Essential Header
  * Slug: woocommerce-blocks/header-essential
